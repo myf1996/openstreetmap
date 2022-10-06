@@ -8,12 +8,14 @@ jobs:
     - stage: 'Tests'
       name: 'Build the app'
       script:
+        - npm run test
         - echo "Running"
       
     - stage: 'Deploy'
       name: 'Deploy to Dev Envirnoment'
       if: fork = false AND branch = master AND type IN (push, api)
       script:
+        - npm run test
         - ./scripts/deploy.sh
 
 cache:
