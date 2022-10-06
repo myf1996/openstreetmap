@@ -1,9 +1,10 @@
 
 const app = require('./app.js');
-const port = process.env.PORT || 3000;
+const config = require('./config');
+const port = config.port;
   
 // Server
 app.listen(port, () => {
-	console.log('Listening on: http://localhost:3000');
+	console.log(`Listening on: http://localhost:${port}`);
 });
   
