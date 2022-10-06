@@ -1,0 +1,34 @@
+language: node_js
+
+node_js:
+  - '14.19.1'
+
+jobs:
+  include:
+    - stage: 'Tests'
+      name: 'Build the app'
+      script:
+        - echo "Running"
+      
+    - stage: 'Deploy'
+      name: 'Deploy to Dev Envirnoment'
+      if: fork = false AND branch = master AND type IN (push, api)
+      script:
+        - ./scripts/deploy.sh
+
+cache:
+  - bundler
+  - npm
+  - pip
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - python
+      - python-pip
+
+before_install:
+  - chmod +x ./scripts/deploy.sh
+  
