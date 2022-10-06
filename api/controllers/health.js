@@ -1,7 +1,5 @@
-
-  module.exports = () => ({
-    get: async (req, res) => {
-        res.json({ message: "Application is healthy." });
-    }
-  });
-  
+module.exports = () => ({
+  get: async (req, res) => {
+    res.json({ message: "OpenStreetMap Application is healthy." });
+  }
+});

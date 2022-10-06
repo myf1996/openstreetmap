@@ -1,1 +1,148 @@
-{"swagger":"2.0","basePath":"/openstreetmap/","info":{"version":"1.0.0","title":"openstreetmap"},"tags":[{"name":"openstreetmap","description":"API for authorization in the system"}],"schemes":["http","https"],"consumes":["application/json; charset=utf-8","application/json"],"paths":{"/health":{"get":{"tags":["Health"],"produces":["application/json"],"responses":{"200":{"description":"User-Services Application is healthy."}}}}},"definitions":{"badRequest":{"type":"object","properties":{"statusCode":{"type":"integer"},"ref":{"type":"string"},"Method":{"type":"string"},"Url":{"type":"string"},"errors":{"type":"array","items":{"$ref":"#/definitions/error"}}},"additionalProperties":false},"error":{"type":"object","properties":{"keyword":{"type":"string"},"dataPath":{"type":"string"},"schemaPath":{"type":"string"},"params":{"type":"object"},"message":{"type":"string"},"location":{"type":"string"},"code":{"type":"string"},"errors":{"type":"array","items":{"type":"object","properties":{"code":{"type":"string"},"params":{"type":"array","items":{"type":"string"}},"message":{"type":"string"},"path":{"type":"array","items":{"type":"string"}}}}}}}}}
+{
+  "swagger": "2.0",
+  "basePath": "/openstreetmap/",
+  "info": {
+    "version": "1.0.0",
+    "title": "openstreetmap"
+  },
+  "tags": [
+    {
+      "name": "openstreetmap",
+      "description": "API for fetching information from openstreet api in OSM format and convert into JSON format"
+    }
+  ],
+  "schemes": ["http", "https"],
+  "consumes": ["application/json; charset=utf-8", "application/json"],
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": ["Health"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "OpenStreetMap Application is healthy."
+          }
+        }
+      }
+    },
+    "/map": {
+      "get": {
+        "tags": ["Map"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "minLon",
+            "required": true,
+            "type": "number",
+            "format": "float"
+          },
+          {
+            "in": "query",
+            "name": "minLat",
+            "required": true,
+            "type": "number",
+            "format": "float"
+          },
+          {
+            "in": "query",
+            "name": "maxLon",
+            "required": true,
+            "type": "number",
+            "format": "float"
+          },
+          {
+            "in": "query",
+            "name": "maxLat",
+            "required": true,
+            "type": "number",
+            "format": "float"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "badRequest": {
+      "type": "object",
+      "properties": {
+        "statusCode": {
+          "type": "integer"
+        },
+        "ref": {
+          "type": "string"
+        },
+        "Method": {
+          "type": "string"
+        },
+        "Url": {
+          "type": "string"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/error"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "error": {
+      "type": "object",
+      "properties": {
+        "keyword": {
+          "type": "string"
+        },
+        "dataPath": {
+          "type": "string"
+        },
+        "schemaPath": {
+          "type": "string"
+        },
+        "params": {
+          "type": "object"
+        },
+        "message": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "params": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "message": {
+                "type": "string"
+              },
+              "path": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
