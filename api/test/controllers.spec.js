@@ -53,11 +53,3 @@ describe('Response: Map API 200', function() {
       });
   });
 });
-
-// describe('Response: Map API 200', function() {
-//   it('resolves', async function(done) {
-//     return resolvingPromise.then( (result) => {
-//       expect(result).to.equal('promise resolved');
-//     });
-//   });
-// });
