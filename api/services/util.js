@@ -6,6 +6,7 @@ const config = require('./../config');
 //         33.0890
 // 73.0280         74.0706
 //         33.0585
+// Left Bottom Right Top
 // https://overpass-api.de/api/map?bbox=73.0280,33.0585,74.0706,33.0890
 // http://localhost:8000/openstreetmap/map?minLon=73.0288&minLat=33.0585&maxLon=74.0706&maxLat=33.0890
 // ***************************************
