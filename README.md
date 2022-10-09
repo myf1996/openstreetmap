@@ -2,8 +2,8 @@
 
 ```
 Express application which work as serverless (AWS Lambda) and server both,application has 3 endpoint 
-swagger (docs), health, & map which take 4 parameters (minLon, minLat, maxLon, maxLat) which works as bbox in 
-openstreenmap API   
+swagger (docs), health, & map which take 4 parameters (minLon, minLat, maxLon, maxLat) which works as bbox 
+in openstreetmap API   
 ```
 ### Requirements
 ```
